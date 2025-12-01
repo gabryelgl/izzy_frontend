@@ -130,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       alignment: Alignment.bottomCenter,
 
                       child: Text(
-                        "das atividades do dia concluídas",
+                        "das tarefas concluídas",
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 11,
@@ -357,6 +357,79 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ],
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Color(0xFFFFD777),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+                width: 160,
+                height: 150,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  verticalDirection: VerticalDirection.up,
+                  children: [
+                    Text(
+                      "Sessão de foco",
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF271608),
+                        decoration: TextDecoration.none,
+                        fontFamily: "Poppins",
+                      ),
+                    ),
+                    Image.asset('assets/home/prism.png', height: 100),
+                  ],
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color(0xFFB8D7EB),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+                width: 160,
+                height: 150,
+                child: Column(
+                  verticalDirection: VerticalDirection.up,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Mindfullness",
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF271608),
+                        decoration: TextDecoration.none,
+                        fontFamily: "Poppins",
+                      ),
+                    ),
+                    Image.asset('assets/home/nebula.png', height: 100),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            decoration: BoxDecoration(
+              color: Color(0xFF005389),
+              borderRadius: BorderRadius.all(Radius.circular(100)),
+            ),
+            child: Text(
+              "A melhor forma de prever o futuro é criá-lo.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 14,
+                fontWeight: FontWeight.normal,
+                color: Color(0xFFFFFFFF),
+                decoration: TextDecoration.none,
+              ),
             ),
           ),
         ],

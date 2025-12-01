@@ -65,6 +65,8 @@ flutter:
     - assets/login/astro.png
     - assets/login/google.png
     - assets/home/compass.png
+    - assets/home/prism.png
+    - assets/home/nebula.png
 
   fonts:
     - family: Poppins
