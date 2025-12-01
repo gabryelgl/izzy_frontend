@@ -10,6 +10,6 @@ class Izzy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: LoginScreen());
+    return MaterialApp(home: LoginScreen());
   }
 }

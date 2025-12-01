@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,7 +24,6 @@ class HalfDonutChart extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        // Gráfico
         SfCircularChart(
           margin: EdgeInsets.zero,
           series: <DoughnutSeries<_ChartData, String>>[
@@ -32,18 +32,15 @@ class HalfDonutChart extends StatelessWidget {
               xValueMapper: (data, _) => data.label,
               yValueMapper: (data, _) => data.value,
 
-              // Meia rosca
               startAngle: 0,
               endAngle: 360,
 
-              // Tamanho
               innerRadius: '70%',
-              radius: '80%',
+              radius: '70%',
 
-              // Cores
               pointColorMapper: (data, index) {
                 if (index == 0) {
-                  return const Color(0xFF064668); // Progresso
+                  return const Color(0xFFFFA559); // Progresso
                 }
                 return Colors.transparent; // Parte vazia
               },
@@ -53,15 +50,17 @@ class HalfDonutChart extends StatelessWidget {
           ],
         ),
 
-        // Texto do progresso alinhado na base do gráfico
         Align(
-          alignment: Alignment(0, -0.15), // 0 = centro, 1 = fundo, -1 = topo
+          alignment: Alignment.center,
           child: Text(
             "${progress.toInt()}%",
-            style: const TextStyle(
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF064668),
+            style: GoogleFonts.poppins(
+              textStyle: const TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.w800,
+                color: Color(0xFF271608),
+                decoration: TextDecoration.none,
+              ),
             ),
           ),
         ),
@@ -85,24 +84,9 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         spacing: 30,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 10,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF064668),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  Icon(Icons.menu, color: Color(0xFF064668), size: 50),
-                ],
-              ),
               Text(
                 "Olá, [user]",
                 textAlign: TextAlign.right,
@@ -110,23 +94,55 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Color(0xFF271608),
                   decoration: TextDecoration.none,
                   fontSize: 30,
-                  fontFamily: "Poppins, sans-serif",
+                  fontFamily: "Poppins",
                   fontWeight: FontWeight.w500,
+                ),
+              ),
+              Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Color(0xFF064668),
+                  shape: BoxShape.circle,
                 ),
               ),
             ],
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
+                padding: EdgeInsets.only(bottom: 10),
                 decoration: BoxDecoration(
                   color: Color(0xFFFFD777),
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 width: 160,
                 height: 150,
-                child: Stack(children: [HalfDonutChart(progress: 90)]),
+                child: Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: HalfDonutChart(progress: 90),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+
+                      child: Text(
+                        "das atividades do dia concluídas",
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF271608),
+                          decoration: TextDecoration.none,
+                          fontFamily: "Poppins, sans-serif",
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Container(
                 decoration: BoxDecoration(
@@ -135,8 +151,213 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 width: 160,
                 height: 150,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Precisa de ajuda?",
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF271608),
+                        decoration: TextDecoration.none,
+                        fontFamily: "Poppins",
+                      ),
+                    ),
+                    Image.asset('assets/home/compass.png', height: 100),
+                  ],
+                ),
               ),
             ],
+          ),
+          Container(
+            width: double.infinity,
+            height: 150,
+            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+            decoration: BoxDecoration(
+              color: Color(0xFF90C0DF),
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "25",
+                        style: TextStyle(
+                          fontSize: 70,
+                          fontWeight: FontWeight.w800,
+                          color: Color(0xFF271608),
+                          fontFamily: "Poppins",
+                          decoration: TextDecoration.none,
+                          height: 1,
+                        ),
+                      ),
+                      Text(
+                        "terça",
+                        style: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.w800,
+                          color: Color(0xFF271608),
+                          fontFamily: "Poppins",
+                          decoration: TextDecoration.none,
+                          height: 1,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Column(
+                  spacing: 15,
+                  children: [
+                    Row(
+                      spacing: 10,
+                      children: [
+                        Text(
+                          "10:00",
+                          style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal,
+                            color: Color(0xFF271608),
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 3,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Color(0xFF064668),
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                          ),
+                          child: Row(
+                            spacing: 5,
+                            children: [
+                              Container(
+                                height: 15,
+                                width: 15,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFFFA559),
+                                ),
+                              ),
+                              Text(
+                                "rotina da manhã",
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                  color: Color(0xFFF9ECCF),
+                                  decoration: TextDecoration.none,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      spacing: 10,
+                      children: [
+                        Text(
+                          "10:00",
+                          style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal,
+                            color: Color(0xFF271608),
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 3,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Color(0xFF064668),
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                          ),
+                          child: Row(
+                            spacing: 5,
+                            children: [
+                              Container(
+                                height: 15,
+                                width: 15,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFFFA559),
+                                ),
+                              ),
+                              Text(
+                                "rotina da manhã",
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                  color: Color(0xFFF9ECCF),
+                                  decoration: TextDecoration.none,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      spacing: 10,
+                      children: [
+                        Text(
+                          "10:00",
+                          style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal,
+                            color: Color(0xFF271608),
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 3,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Color(0xFF064668),
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                          ),
+                          child: Row(
+                            spacing: 5,
+                            children: [
+                              Container(
+                                height: 15,
+                                width: 15,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFFFA559),
+                                ),
+                              ),
+                              Text(
+                                "rotina da manhã",
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                  color: Color(0xFFF9ECCF),
+                                  decoration: TextDecoration.none,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
