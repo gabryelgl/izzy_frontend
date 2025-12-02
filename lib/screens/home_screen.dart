@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -40,9 +39,9 @@ class HalfDonutChart extends StatelessWidget {
 
               pointColorMapper: (data, index) {
                 if (index == 0) {
-                  return const Color(0xFFFFA559); // Progresso
+                  return const Color(0xFFFFA559);
                 }
-                return Colors.transparent; // Parte vazia
+                return Colors.transparent;
               },
 
               dataLabelSettings: const DataLabelSettings(isVisible: false),
@@ -54,13 +53,12 @@ class HalfDonutChart extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             "${progress.toInt()}%",
-            style: GoogleFonts.poppins(
-              textStyle: const TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.w800,
-                color: Color(0xFF271608),
-                decoration: TextDecoration.none,
-              ),
+            style: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 26,
+              fontWeight: FontWeight.w800,
+              color: Color(0xFF271608),
+              decoration: TextDecoration.none,
             ),
           ),
         ),

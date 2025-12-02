@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/login_screen.dart';
+import 'package:izzy_frontend/screens/chat_screen.dart';
 
 void main() {
   runApp(const Izzy());
@@ -10,6 +10,6 @@ class Izzy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: LoginScreen());
+    return MaterialApp(home: Ai());
   }
 }
